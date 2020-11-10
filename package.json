@@ -1,0 +1,26 @@
+{
+  "name": "newsscrappingapi",
+  "version": "1.0.0",
+  "description": "This API is used for scrapping the news webiste",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "ejs": "^3.1.5",
+    "events": "^3.2.0",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.5"
+  }
+}
