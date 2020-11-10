@@ -1,19 +1,19 @@
 # NewsScrapper
 
 (For scrapping data)
-``
+```
 $ npm i --save cheerio
-``
+```
 (For sending request from my API to third-party website)
-
-``
+```
 $ npm i --save request
-``
+```
+
 ## API Documentation:
-``
+```
 1) GET  /NewsScrapApi/news
-``
-``
+```
+```
    Response JSON object:
 
       - message(string): successful
@@ -21,8 +21,9 @@ $ npm i --save request
                  - title(string): title of article
                  - link(string): URL of the detail page of the article.
                  - summery(string): summery paragraph of the article.
+ ```                
                  
-``
+
 
 ## References:
 - https://fidget.dev/posts/read-the-new-york-times-for-free-using-nodejs-scraper/
