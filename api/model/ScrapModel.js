@@ -52,11 +52,11 @@ class ScrapModel
             });
         });
         console.log(articles);
-        ScrapModel.buildDetailNews();
+        //ScrapModel.buildDetailNews();
         
-        // var news=new newsModel.NewsModel();
-        // news.setNewsData(postItems);
-        //console.log(postItems.length);
+        var news=new newsModel.NewsModel();
+        news.setNewsData(articles);
+        console.log(articles.length);
 
 
       });
