@@ -1,12 +1,23 @@
 # NewsScrapper
 
-(For scrapping data)
+## Project Structure
+This API is used for scraping news from authentic News portal website and show it to another website.
+
+## Project Installation
+1) Install node modules for the project using below command-
 ```
-$ npm i --save cheerio
+$ npm install
 ```
-(For sending request from my API to third-party website)
+2) Start the server using the below command -
 ```
-$ npm i --save request
+$ npm start
+```
+Your server should be available at PORT 5000
+
+
+## API Domain URL
+```
+https://news-scrapper-api.herokuapp.com
 ```
 
 ## API Documentation:
