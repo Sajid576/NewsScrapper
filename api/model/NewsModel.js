@@ -17,7 +17,7 @@ class NewsModel
     getNews()
     {
         
-        return NewsModel.scrappedNewsData;
+        return NewsModel.modifiedNewsData;
     }
     setNewsData(data)
     {
