@@ -1,26 +1,35 @@
+const paraModel = require('./ParaphraseModel')
 
 class NewsModel
 {
-    static AllNewsData=[];
-
+    static scrappedNewsData=[];
+    static modifiedNewsData=[];
 
     logger1=()=>
     {
-        console.log(NewsModel.AllNewsData)
+        console.log(NewsModel.scrappedNewsData)
     }
-    
+    logger2=()=>
+    {
+        console.log(NewsModel.modifiedNewsData)
+    }
     
     getNews()
     {
         
-        return NewsModel.AllNewsData;
+        return NewsModel.scrappedNewsData;
     }
     setNewsData(data)
     {
-        NewsModel.AllNewsData=data;
+        NewsModel.scrappedNewsData=data;
         this.logger1();
     }
-
+    async generateParaphrasedNewsData(articles)
+    {   
+        const generatedData=await paraModel.generateParaphraseList(articles);
+        NewsModel.modifiedNewsData=generatedData;
+        this.logger2();
+    }
 
 
 }

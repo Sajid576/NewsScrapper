@@ -1,5 +1,6 @@
 
-const request=require('request');
+
+const got = require('got');
 const cheerio=require('cheerio')
 var newsModel=require('./NewsModel')
 var EventEmitter = require('events')
@@ -11,8 +12,8 @@ var ee = new EventEmitter()
 
 class ScrapModel
 {
-    static base='https://www.thedailystar.net';
-    static websiteURL='https://www.thedailystar.net/newspaper';
+    static base='http://www.thedailystar.net';
+    static websiteURL='http://www.thedailystar.net/newspaper';
    
     
     constructor()
@@ -31,12 +32,10 @@ class ScrapModel
     
     static async listenNewsUpdate()
     {
-        
-      request(ScrapModel.websiteURL, function (error, response, body) {
-        if(error){
-            console.error('error:', error); // Print the error if one occurred
-        }
-        var $ = cheerio.load(body);
+      try {
+        const response = await got(ScrapModel.websiteURL);
+        //console.log(response.body);
+        var $ = cheerio.load(response.body);
         var articles=[];
         $('.list-content').each(function(i,item) {
             //var post=$(this).text().trim().replace(/\s\s+/g, '');
@@ -51,15 +50,19 @@ class ScrapModel
               'summary':summery
             });
         });
-        console.log(articles);
+        //console.log(articles);
         //ScrapModel.buildDetailNews();
         
         var news=new newsModel.NewsModel();
         news.setNewsData(articles);
+        news.generateParaphrasedNewsData(articles);
         console.log(articles.length);
 
-
-      });
+    } catch (error) {
+        console.log(error.response.body);
+        //=> 'Internal server error ...'
+    }
+     
        
        
         
